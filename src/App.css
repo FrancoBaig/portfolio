@@ -87,3 +87,35 @@
     gap: 1.8rem;
     margin: 1rem 0;
 }
+
+/* Skills card */
+.skills {
+    padding: 3rem;
+    width: 100%;
+    height: fit-content; 
+    background-color: var(--clr-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.skills__title {
+    font-family: var(--ff-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--clr-grey);
+    text-transform: uppercase;
+}
+
+.skills__item {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.skills__text {
+    font-family: var(--ff-primary);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--clr-grey);
+}
