@@ -21,7 +21,9 @@ function Projects() {
                     </a>
                     <div className="project__body">
                         <div className="project__labels">
-                            <span className="project__label">#HTML</span>
+                            <span className="project__label">
+                                <i class="fa-brands fa-html5"></i>#HTML
+                            </span>
                             <span className="project__label">#CSS</span>
                             <span className="project__label">#responsive</span>
                         </div>

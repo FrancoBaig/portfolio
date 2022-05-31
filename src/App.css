@@ -61,7 +61,7 @@
 }
 
 .user-card__image{
-    object-fit: cover;
+    width: 100%;
     border-radius: var(--border-radius);
 }
 
@@ -103,6 +103,10 @@
     align-items: center;
     gap: 1.8rem;
     margin: 1rem 0;
+}
+
+.contact__text {
+    /* font-size: 1.4rem; */
 }
 
 /* Skills card */
