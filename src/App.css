@@ -280,7 +280,12 @@
 
 .project__labels{
     display: flex;
-    gap: 1rem;
+    gap: 1.4rem;
+    padding-top: .5rem;
+}
+
+.fa-brands {
+    font-size: 2.5rem;
 }
 
 .project__label {
