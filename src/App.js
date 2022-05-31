@@ -8,11 +8,15 @@ import Hobbies from "./components/Hobbies";
 function App() {
     return (
         <div className="container">
-            <UserCard />
-            <SkillsCard />
-            <Education />
-            <Projects />
-            <Hobbies />
+            <div className="sidebar">
+                <UserCard />
+                <Education />
+                <Hobbies />
+            </div>
+            <div className="board">
+                <SkillsCard />
+                <Projects />
+            </div>
         </div>
     );
 }

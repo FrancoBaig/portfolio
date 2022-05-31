@@ -11,7 +11,7 @@ const education = [
         date: "2021 - Current"
     },
     {
-        id: 1,
+        id: 2,
         title: "Ingeniería en Sistemas",
         image: "https://via.placeholder.com/84x84.png",
         link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
@@ -20,7 +20,7 @@ const education = [
         date: "2021 - Current"
     },
     {
-        id: 1,
+        id: 3,
         title: "Ingeniería en Sistemas",
         image: "https://via.placeholder.com/84x84.png",
         link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
