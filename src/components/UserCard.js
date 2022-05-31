@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react";
 
 function UserCard() {
     return (
-        <div className="user-card">
+        <div className="user-card paper">
             <a
                 className="user-card__thumbnail"
                 href="https://github.com/FrancoBaig"
@@ -38,7 +38,7 @@ function UserCard() {
                 </p>
             </div>
         </div>
-    )
+    );
 }
 
-export default UserCard
+export default UserCard;

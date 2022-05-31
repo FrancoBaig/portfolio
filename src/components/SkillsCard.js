@@ -22,7 +22,7 @@ const skills = [
 
 function SkillsCards() {
     return (
-        <div className="skills">
+        <div className="skills paper">
             <h4 className="skills__title">Front end</h4>
             <div className="skills__items">
                 {skills.map((elem) => (
