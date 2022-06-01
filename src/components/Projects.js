@@ -1,35 +1,52 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState, useEffect } from "react";
 import Filter from "./Filter";
 import Projectos from "../data/Projectos.json";
+import getIconFromTag from "../helper/getIconFromTag";
 
 function Projects() {
     const data = Projectos;
+    const [page, setPage] = useState(0);
+    const [projects, setProjects] = useState([]);
+
+    useLayoutEffect(() => {
+        // handleSetPages(data, 1, 5);
+    }, []);
+
+    useLayoutEffect(() => {
+        handleSetPages(data, page, 5);
+    }, [page]);
 
     useLayoutEffect(() => {
         addIcon();
-    }, []);
+    }, [projects]);
 
-    const switchTag = (tag) => {
-        switch (tag) {
-            case "HTML":
-                return "fa-html5";
-            case "CSS":
-                return "fa-css3-alt";
-            case "SCSS":
-                return "fa-sass";
-            case "React":
-                return "fa-react";
-            default:
-                break;
-        }
-    };
+    const handlePaginationButtons = () => {};
 
     const addIcon = () => {
         const projects = document.getElementsByClassName("fa-brands");
         for (let i = 0; i < projects.length; i++) {
             let tag = projects[i].attributes.tag.value;
-            let iconForTag = switchTag(tag);
+            let iconForTag = getIconFromTag(tag);
             projects[i].classList.add(iconForTag);
+        }
+    };
+
+    const handleSetPages = (data, page, per_page = 5) => {
+        let start = page === 0 ? 0 : page * per_page;
+        setProjects(data.slice(start, start + per_page));
+    };
+
+    const handlePagination = (e) => {
+        let id = e.target.id;
+        switch (id) {
+            case "left":
+                setPage(page - 1);
+                break;
+            case "right":
+                setPage(page + 1);
+                break;
+            default:
+                setPage(id - 1);
         }
     };
 
@@ -40,16 +57,13 @@ function Projects() {
                 optionsArray={["All", "React", "HTML/CSS/JS"]}
             />
             <div className="projects">
-                {data.map((proj) => (
+                {projects.map((proj) => (
                     <div className="project paper" key={proj.id}>
                         <a
                             className="project__thumbnail"
                             href="http://placehold.com"
                         >
-                            <img
-                                className="project__image"
-                                src="https://via.placeholder.com/322x274.png"
-                            />
+                            <img className="project__image" src={proj.image} />
                         </a>
                         <div className="project__body">
                             <div className="project__labels">
@@ -61,11 +75,7 @@ function Projects() {
                             </div>
                             <h2 className="project__title">{proj.title}</h2>
                             <p className="project__description">
-                                In this project, I work with HTML and CSS to
-                                create a responsive page . The design is from
-                                devchallenge.io. Donec aliquam est dui, vel
-                                vestibulum diam sollicitudin id. Quisque feugiat
-                                malesuada molestie.
+                                {proj.description}
                             </p>
                             <div className="project__buttons">
                                 <button
@@ -84,6 +94,43 @@ function Projects() {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="pagination">
+                <button
+                    className={`btn btn--pagination`}
+                    id={"left"}
+                    onClick={(e) => handlePagination(e)}
+                >
+                    <i className="fa-solid fa-angles-left"></i>
+                </button>
+                <button
+                    className="btn btn--pagination"
+                    id={1}
+                    onClick={(e) => handlePagination(e)}
+                >
+                    1
+                </button>
+                <button
+                    className="btn btn--pagination"
+                    id={2}
+                    onClick={(e) => handlePagination(e)}
+                >
+                    2
+                </button>
+                <button
+                    className="btn btn--pagination"
+                    id={3}
+                    onClick={(e) => handlePagination(e)}
+                >
+                    3
+                </button>
+                <button
+                    className="btn btn--pagination"
+                    id={"right"}
+                    onClick={(e) => handlePagination(e)}
+                >
+                    <i className="fa-solid fa-angles-right"></i>
+                </button>
             </div>
         </div>
     );

@@ -63,6 +63,15 @@
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
     },
     {
+        "id": 8,
+        "title": "My galerry",
+        "tags": ["HTML", "SCSS"],
+        "image": "https://via.placeholder.com/322x274.png",
+        "code": "https://github.com/FrancoBaig/myGallery",
+        "demo": "https://my-gallery-francobaig.netlify.app/",
+        "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
+    },
+    {
         "id": 9,
         "title": "Todo app",
         "tags": ["HTML", "CSS", "React"],

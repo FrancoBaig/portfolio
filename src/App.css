@@ -29,13 +29,17 @@
     margin: 0 auto;
     padding: 6.4rem;
 
+    display: flex;
+
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 3.5rem;
 }
 
 .sidebar {
-    display: grid;
+    /* display: grid; */
+    display: flex;
+    flex-direction: column;
     gap: 3.5rem;
 }
 
@@ -232,6 +236,13 @@
     background-color: var(--clr-blue-hover);
 }
 
+.btn--pagination {
+    border-radius: 6px;
+    padding: 1rem 2.7rem;
+    background-color: none;
+    border: .5px solid var(--clr-light-grey);
+}
+
 /* Filter */
 .filter{
     height: fit-content;
@@ -258,6 +269,7 @@
 }
 
 .project-container{
+    position: relative;
     
 }
 
@@ -317,6 +329,14 @@
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.pagination {
+    display: flex;
+    gap: .2rem;
+    position: absolute;
+    right: 2rem;
+    bottom: 0;
 }
 
 /* Hobbies */
