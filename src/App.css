@@ -394,14 +394,14 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.37);
+    background-color: rgba(0, 0, 0, 0.27);
     transition: all .4s;
 }
 
 /*Speed Dial*/
 .speed-dial{
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
     border-radius: 50%;
     background-color: var(--clr-blue);
     display: flex;
@@ -410,10 +410,12 @@
     font-size: 4rem;
     color: var(--clr-white);
     transition: all 300ms;
+    cursor: pointer;
+    z-index: 2;
 
     position: fixed;
-    bottom: 4rem;
-    right: 5rem;
+    bottom: 2rem;
+    right: 2rem;
 }
 
 .speed-dial:hover {
@@ -428,11 +430,27 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    right: 5rem;
-    bottom: 17rem;
+    right: 2.5rem;
+    bottom: 13rem;
     z-index: 1;
     gap: 3rem;
-    transition: all 500ms;
+    transition: background-color 0.4s, opacity 0.4s, transform .4s;
+
+    opacity: 0;
+    transform: translate(1rem, 4rem);
+    visibility: hidden;
+}
+
+.btn--hidden {
+    display: none;
+}
+
+
+.chat--active {
+    opacity: 1;
+    transform: translate(0, 0);
+    visibility: visible;
+
 }
 
 .chat__title {
@@ -443,7 +461,6 @@
 }
 
 .chat__form {
-    height: 60vh;
     display: flex;
     flex-direction: column;
     gap: .7rem;
