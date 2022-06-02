@@ -75,7 +75,7 @@
         "id": 9,
         "title": "Todo app",
         "tags": ["HTML", "CSS", "React"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
+        "image": "https://i.imgur.com/2gDGQtX.png",
         "code": "https://github.com/FrancoBaig/Todo-app",
         "demo": "https://todo-app-francobaig.netlify.app/",
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
@@ -84,7 +84,7 @@
         "id": 10,
         "title": "Weather app",
         "tags": ["HTML", "CSS", "React"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
+        "image": "https://i.imgur.com/gGj71nM.png",
         "code": "https://github.com/FrancoBaig/Weather-app",
         "demo": "https://funny-kashata-886f38.netlify.app/",
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
@@ -93,7 +93,7 @@
         "id": 11,
         "title": "Country quiz",
         "tags": ["HTML", "SCSS", "React"],
-        "image": "https://i.imgur.com/hY4Qi58.png",
+        "image": "https://i.imgur.com/8dFlU0b.png",
         "code": "https://github.com/FrancoBaig/country-quiz",
         "demo": "https://country-quiz-fb.netlify.app/",
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
@@ -102,7 +102,7 @@
         "id": 12,
         "title": "Portfolio",
         "tags": ["HTML", "CSS", "React"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
+        "image": "https://i.imgur.com/StHw5jP.png",
         "code": "https://github.com/FrancoBaig/portfolio",
         "demo": "",
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."

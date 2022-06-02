@@ -4,7 +4,7 @@ import SkillsCard from "./components/SkillsCard";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Hobbies from "./components/Hobbies";
-import SpeedDial from "./components/SpeedDial";
+import SpeedDial from "./components/email/SpeedDial";
 
 function App() {
     return (

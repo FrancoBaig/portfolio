@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Snackbar from "./Snackbar";
 
 function SpeedDial() {
     const [display, setDisplay] = useState(false);
+    const [snackbar, setSnackbar] = useState(false);
 
     const toggleDisplay = () => {
         setDisplay((prev) => !prev);
@@ -10,6 +12,10 @@ function SpeedDial() {
     const handleSubmit = (e) => {
         e.preventDefault();
         toggleDisplay();
+        setSnackbar(true);
+        setTimeout(() => {
+            setSnackbar(false);
+        }, 3000);
     };
 
     return (
@@ -43,15 +49,20 @@ function SpeedDial() {
                             display ? "" : "btn--hidden"
                         }`}
                         type="submit"
-                        onClick={handleSubmit}
+                        onClick={(e) => handleSubmit(e)}
                     >
                         Send
                     </button>
                 </form>
             </div>
-            <div className="speed-dial" onClick={(e) => toggleDisplay(e)}>
+            <div className="speed-dial" onClick={toggleDisplay}>
                 <i className="icon fa-solid fa-envelope"></i>
             </div>
+            <Snackbar
+                text="email sent successfully"
+                display={snackbar}
+                mode="snackbar--success"
+            />
         </>
     );
 }

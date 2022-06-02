@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Filter from "./Filter";
 import Projectos from "../data/Projectos.json";
 import getIconFromTag from "../helper/getIconFromTag";
@@ -17,6 +17,7 @@ function Projects() {
     useLayoutEffect(() => {
         handleSetPages(filteredProjects, page);
         setButtonsText(getPaginationButtons(filteredProjects));
+        setActive(1); // cambiar
     }, [page, filteredProjects]);
 
     useLayoutEffect(() => {
@@ -74,7 +75,11 @@ function Projects() {
                             className="project__thumbnail"
                             href="http://placehold.com"
                         >
-                            <img className="project__image" src={proj.image} />
+                            <img
+                                className="project__image"
+                                src={proj.image}
+                                alt={proj.name}
+                            />
                         </a>
                         <div className="project__body">
                             <div className="project__labels">
@@ -89,18 +94,23 @@ function Projects() {
                                 {proj.description}
                             </p>
                             <div className="project__buttons">
-                                <button
-                                    type="button"
-                                    className="btn btn-lg btn--blue"
-                                >
-                                    Demo
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-lg btn--border-blue"
-                                >
-                                    Code
-                                </button>
+                                <a href={proj.demo} target="_black">
+                                    <button
+                                        type="button"
+                                        className="btn btn-lg btn--blue"
+                                    >
+                                        Demo
+                                    </button>
+                                </a>
+
+                                <a href={proj.code} target="_black">
+                                    <button
+                                        type="button"
+                                        className="btn btn-lg btn--border-blue"
+                                    >
+                                        Code
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
