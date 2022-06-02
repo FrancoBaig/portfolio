@@ -4,6 +4,7 @@ import SkillsCard from "./components/SkillsCard";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Hobbies from "./components/Hobbies";
+import SpeedDial from "./components/SpeedDial";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <SkillsCard />
                 <Projects />
             </div>
+            <SpeedDial />
         </div>
     );
 }
