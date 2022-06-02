@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 
-function Filter({ title, optionsArray }) {
-    const [active, setActive] = useState(optionsArray[0]);
+function Filter({ title, optionsArray, handleFilter }) {
+    const [active, setActive] = useState("All");
+
+    const handleClick = (e) => {
+        handleFilter(e);
+        setActive(e.target.id);
+    };
 
     return (
         <div className="filter paper">
@@ -14,6 +19,8 @@ function Filter({ title, optionsArray }) {
                         type="button"
                         className={`btn ${active === item ? "btn--blue" : ""}`}
                         key={item}
+                        id={item}
+                        onClick={(e) => handleClick(e)}
                     >
                         {item}
                     </button>

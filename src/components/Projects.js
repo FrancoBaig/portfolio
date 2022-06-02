@@ -2,25 +2,26 @@ import React, { useLayoutEffect, useState, useEffect } from "react";
 import Filter from "./Filter";
 import Projectos from "../data/Projectos.json";
 import getIconFromTag from "../helper/getIconFromTag";
+import getPaginationButtons from "../helper/getPaginationButtons";
 
 function Projects() {
     const data = Projectos;
     const [page, setPage] = useState(0);
     const [projects, setProjects] = useState([]);
+    const [filteredProjects, setFilteredProjects] = useState(data);
+    const [buttonsText, setButtonsText] = useState(
+        getPaginationButtons(filteredProjects)
+    );
+    const [active, setActive] = useState(1);
 
     useLayoutEffect(() => {
-        // handleSetPages(data, 1, 5);
-    }, []);
-
-    useLayoutEffect(() => {
-        handleSetPages(data, page, 5);
-    }, [page]);
+        handleSetPages(filteredProjects, page);
+        setButtonsText(getPaginationButtons(filteredProjects));
+    }, [page, filteredProjects]);
 
     useLayoutEffect(() => {
         addIcon();
     }, [projects]);
-
-    const handlePaginationButtons = () => {};
 
     const addIcon = () => {
         const projects = document.getElementsByClassName("fa-brands");
@@ -31,7 +32,8 @@ function Projects() {
         }
     };
 
-    const handleSetPages = (data, page, per_page = 5) => {
+    const handleSetPages = (data, page) => {
+        const per_page = 5;
         let start = page === 0 ? 0 : page * per_page;
         setProjects(data.slice(start, start + per_page));
     };
@@ -50,11 +52,20 @@ function Projects() {
         }
     };
 
+    const handleFilter = (e) => {
+        const filter = e.target.id;
+        if (e.target.id === "All") {
+            return setFilteredProjects(data);
+        }
+        setFilteredProjects(data.filter((elem) => elem.tags.includes(filter)));
+    };
+
     return (
         <div className="project-container">
             <Filter
+                handleFilter={handleFilter}
                 title="Proyects"
-                optionsArray={["All", "React", "HTML/CSS/JS"]}
+                optionsArray={["All", "React", "SCSS", "CSS", "JS"]}
             />
             <div className="projects">
                 {projects.map((proj) => (
@@ -103,27 +114,18 @@ function Projects() {
                 >
                     <i className="fa-solid fa-angles-left"></i>
                 </button>
-                <button
-                    className="btn btn--pagination"
-                    id={1}
-                    onClick={(e) => handlePagination(e)}
-                >
-                    1
-                </button>
-                <button
-                    className="btn btn--pagination"
-                    id={2}
-                    onClick={(e) => handlePagination(e)}
-                >
-                    2
-                </button>
-                <button
-                    className="btn btn--pagination"
-                    id={3}
-                    onClick={(e) => handlePagination(e)}
-                >
-                    3
-                </button>
+                {buttonsText.map((btn) => (
+                    <button
+                        className={`btn btn--pagination ${
+                            active === btn.id ? "btn--blue" : ""
+                        }`}
+                        id={btn}
+                        key={btn}
+                        onClick={(e) => handlePagination(e)}
+                    >
+                        {btn}
+                    </button>
+                ))}
                 <button
                     className="btn btn--pagination"
                     id={"right"}
