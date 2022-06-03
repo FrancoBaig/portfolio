@@ -37,7 +37,7 @@
     },
     {
         "id": 6,
-        "title": "My Galery",
+        "title": "My Gallery",
         "tags": ["HTML", "SCSS"],
         "image": "https://i.imgur.com/VPDCXj3.png",
         "code": "https://github.com/FrancoBaig/myGallery",
@@ -75,7 +75,7 @@
         "id": 10,
         "title": "Portfolio",
         "tags": ["HTML", "CSS", "React"],
-        "image": "https://i.imgur.com/StHw5jP.png",
+        "image": "https://i.imgur.com/8dFlU0b.png",
         "code": "https://github.com/FrancoBaig/portfolio",
         "demo": "",
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."

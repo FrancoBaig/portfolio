@@ -62,11 +62,12 @@
 }
 
 .user-card__thumbnail {
-    max-width: 37rem;
+    
 }
 
 .user-card__image{
     width: 100%;
+    min-width: 23rem;
     border-radius: var(--border-radius);
 }
 
@@ -148,7 +149,7 @@
 .education {
     
 }
-
+P
 .education__title {
     font-family: var(--ff-primary);
     font-size: 2.4rem;
@@ -275,21 +276,23 @@
 }
 
 .project {
-    display: flex;
+    display: grid;
+    grid-template-columns: 30% 70%;
     gap: 2rem;
 }
 
 .project__thumbnail{
     /* Cambiar */
-    width: 322px;
-    height: 274px;
+    /* width: 322px;
+    height: 274px; */
+    display: flex;
 }
 
 .project__image{
-    width: 322px;
-    height: 274px;
+    width: 100%;
+    min-width: 21rem;
     border-radius: var(--border-radius);    
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .project__body{
@@ -327,6 +330,8 @@
     font-weight: 500;
     color: var(--clr-light-grey);
     margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    
 }
 
 .project__buttons{
@@ -368,6 +373,8 @@
 }
 
 .hobbie__image{
+    width: 100%;
+    min-width: 23rem;
     border-radius: var(--border-radius);
     margin-bottom: 1rem;
 }
@@ -522,4 +529,33 @@ textarea{
     color: var(--clr-white);
     border: none;
     border-radius: 4px;
+}
+
+@media screen and (max-width: 1200px){
+    html {
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+
+    .project {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 800px){
+    html {
+        font-size: 50%;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -65,7 +65,7 @@ function Projects() {
         <div className="project-container">
             <Filter
                 handleFilter={handleFilter}
-                title="Proyects"
+                title="Projects"
                 optionsArray={["All", "React", "SCSS", "CSS", "JS"]}
             />
             <div className="projects">

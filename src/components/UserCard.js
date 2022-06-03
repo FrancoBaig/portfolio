@@ -18,7 +18,7 @@ function UserCard() {
                     <h3 className="user-card__name">Franco Baigorria</h3>
                     <h5 className="user-card__job">Front-end developer</h5>
                 </div>
-                <div className="user-card__contacts">
+                {/* <div className="user-card__contacts">
                     <div className="contact">
                         <i className="contact__icon fa-solid fa-envelope"></i>
                         <p className="contact__text">
@@ -29,7 +29,7 @@ function UserCard() {
                         <i className="contact__icon fa-solid fa-phone"></i>
                         <p className="contact__text">(+603) 546 624 342</p>
                     </div>
-                </div>
+                </div> */}
                 <p className="user-card__description">
                     Self-motivated developer, who is willing to learn and create
                     outstanding UI applications.

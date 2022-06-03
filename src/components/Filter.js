@@ -10,9 +10,7 @@ function Filter({ title, optionsArray, handleFilter }) {
 
     return (
         <div className="filter paper">
-            <h2 className="filter__title">
-                {title} ({optionsArray.length})
-            </h2>
+            <h2 className="filter__title">{title}</h2>
             <div className="filter__buttons">
                 {optionsArray.map((item) => (
                     <button
