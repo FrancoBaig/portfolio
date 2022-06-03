@@ -9,15 +9,6 @@
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
     },
     {
-        "id": 2,
-        "title": "Edie homemade page",
-        "tags": ["HTML", "SCSS"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
-        "code": "https://github.com/FrancoBaig/edie-homemadepage",
-        "demo": "subir",
-        "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
-    },
-    {
         "id": 3,
         "title": "Checkout Page",
         "tags": ["HTML", "SCSS", "JS"],
@@ -30,7 +21,7 @@
         "id": 4,
         "title": "Recipe Blog",
         "tags": ["HTML", "SCSS", "JS"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
+        "image": "https://i.imgur.com/I6c1TMM.png",
         "code": "https://github.com/FrancoBaig/Recipe-blog",
         "demo": "https://recipe-blog-francobaig.netlify.app/",
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
@@ -46,33 +37,15 @@
     },
     {
         "id": 6,
-        "title": "My team page",
+        "title": "My Galery",
         "tags": ["HTML", "SCSS"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
-        "code": "https://github.com/FrancoBaig/my-team-page",
-        "demo": "https://my-team-page-francobaig.netlify.app/",
+        "image": "https://i.imgur.com/VPDCXj3.png",
+        "code": "https://github.com/FrancoBaig/myGallery",
+        "demo": "https://my-gallery-francobaig.netlify.app/",
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
     },
     {
         "id": 7,
-        "title": "My galerry",
-        "tags": ["HTML", "SCSS"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
-        "code": "https://github.com/FrancoBaig/myGallery",
-        "demo": "https://my-gallery-francobaig.netlify.app/",
-        "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
-    },
-    {
-        "id": 8,
-        "title": "My galerry",
-        "tags": ["HTML", "SCSS"],
-        "image": "https://i.imgur.com/QSCsAEo.png",
-        "code": "https://github.com/FrancoBaig/myGallery",
-        "demo": "https://my-gallery-francobaig.netlify.app/",
-        "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
-    },
-    {
-        "id": 9,
         "title": "Todo app",
         "tags": ["HTML", "CSS", "React"],
         "image": "https://i.imgur.com/2gDGQtX.png",
@@ -81,7 +54,7 @@
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
     },
     {
-        "id": 10,
+        "id": 8,
         "title": "Weather app",
         "tags": ["HTML", "CSS", "React"],
         "image": "https://i.imgur.com/gGj71nM.png",
@@ -90,7 +63,7 @@
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
     },
     {
-        "id": 11,
+        "id": 9,
         "title": "Country quiz",
         "tags": ["HTML", "SCSS", "React"],
         "image": "https://i.imgur.com/8dFlU0b.png",
@@ -99,7 +72,7 @@
         "description": "In this project, I work with HTML and CSS to create a responsive page . The design is from devchallenge.io. Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie."
     },
     {
-        "id": 12,
+        "id": 10,
         "title": "Portfolio",
         "tags": ["HTML", "CSS", "React"],
         "image": "https://i.imgur.com/StHw5jP.png",

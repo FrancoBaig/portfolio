@@ -4,11 +4,13 @@ function getIconFromTag(tag) {
             return "fa-html5";
         case "css":
             return "fa-css3-alt";
+        case "js":
+            return "fa-js-square";
+        case "react":
+            return "fa-react";
         case "scss":
         case "sass":
             return "fa-sass";
-        case "react":
-            return "fa-react";
         default:
             break;
     }
