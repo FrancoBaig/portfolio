@@ -285,7 +285,8 @@ P
     /* Cambiar */
     /* width: 322px;
     height: 274px; */
-    display: flex;
+    /* display: flex; */
+    border-radius: var(--border-radius);
 }
 
 .project__image{

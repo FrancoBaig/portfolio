@@ -17,7 +17,9 @@ function Projects() {
     useLayoutEffect(() => {
         handleSetPages(filteredProjects, page);
         setButtonsText(getPaginationButtons(filteredProjects));
-        setActive(1); // cambiar
+
+        /* pagination - active page */
+        setActive(page + 1);
     }, [page, filteredProjects]);
 
     useLayoutEffect(() => {
@@ -127,7 +129,7 @@ function Projects() {
                 {buttonsText.map((btn) => (
                     <button
                         className={`btn btn--pagination ${
-                            active === btn.id ? "btn--blue" : ""
+                            active === btn ? "btn--blue" : ""
                         }`}
                         id={btn}
                         key={btn}

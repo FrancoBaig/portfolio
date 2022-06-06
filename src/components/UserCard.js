@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function UserCard() {
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {}, []);
+
     return (
         <div className="user-card paper">
             <a
