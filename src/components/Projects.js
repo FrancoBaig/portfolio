@@ -1,11 +1,10 @@
 import React, { useLayoutEffect, useState } from "react";
 import Filter from "./Filter";
-import Projectos from "../data/Projectos.json";
 import getIconFromTag from "../helper/getIconFromTag";
 import getPaginationButtons from "../helper/getPaginationButtons";
 
-function Projects() {
-    const data = Projectos;
+function Projects({ projectsData }) {
+    const data = projectsData;
     const [page, setPage] = useState(0);
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState(data);

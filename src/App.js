@@ -26,13 +26,13 @@ function App() {
             {!loading && (
                 <>
                     <div className="sidebar">
-                        <UserCard />
+                        <UserCard userData={userData} />
                         <Education />
                         <Hobbies />
                     </div>
                     <div className="board">
                         <SkillsCard />
-                        <Projects />
+                        <Projects projectsData={projectsData} />
                     </div>
                     <SpeedDial />
                 </>
