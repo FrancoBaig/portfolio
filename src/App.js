@@ -8,8 +8,18 @@ import Hobbies from "./components/Hobbies";
 import SpeedDial from "./components/email/SpeedDial";
 import GetData from "./services/getData";
 
+import RiseLoader from "react-spinners/RiseLoader";
+
 function App() {
     const { loading, userData, projectsData } = GetData();
+
+    if (loading) {
+        return (
+            <div className="spinner">
+                <RiseLoader color={"#2f80ed"} size={20} margin={3} />;
+            </div>
+        );
+    }
 
     return (
         <div className="container">
