@@ -1,9 +1,9 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState, useRef } from "react";
 import Filter from "./Filter";
 import getIconFromTag from "../helper/getIconFromTag";
 import getPaginationButtons from "../helper/getPaginationButtons";
 
-function Projects({ projectsData }) {
+function Projects({ projectsData, scrollToSection }) {
     const data = projectsData;
     const [page, setPage] = useState(0);
     const [projects, setProjects] = useState([]);
@@ -13,6 +13,7 @@ function Projects({ projectsData }) {
     );
     const [active, setActive] = useState(1);
     const lastPage = buttonsText[buttonsText.length - 1];
+    const projectRef = useRef(null);
 
     useLayoutEffect(() => {
         handleSetPages(filteredProjects, page);
@@ -55,6 +56,7 @@ function Projects({ projectsData }) {
                 setPage(id - 1);
                 break;
         }
+        scrollToSection(projectRef);
     };
 
     const handleFilter = (e) => {
@@ -66,7 +68,7 @@ function Projects({ projectsData }) {
     };
 
     return (
-        <div className="project-container">
+        <div className="project-container" ref={projectRef}>
             <Filter
                 handleFilter={handleFilter}
                 title="Projects"

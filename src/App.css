@@ -440,6 +440,22 @@
     font-size: 4.2rem;
 }  
 
+.scroll-top {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.5rem;
+    margin-bottom: 11rem;
+    margin-right: 2rem;
+    background-color: var(--clr-light-grey);
+}
+
+.scroll-top:hover {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.5rem;
+    background-color: var(--clr-grey);
+}
+
 
 /* Chat */
 .chat {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./App.css";
 import UserCard from "./components/UserCard";
 import SkillsCard from "./components/SkillsCard";
@@ -7,11 +7,20 @@ import Projects from "./components/Projects";
 import Hobbies from "./components/Hobbies";
 import SpeedDial from "./components/email/SpeedDial";
 import GetData from "./services/getData";
+import ScrollToTop from "./components/ScrollToTop";
 
 import RiseLoader from "react-spinners/RiseLoader";
 
 function App() {
     const { loading, user, projects, skills, education, hobbies } = GetData();
+    const appRef = useRef(null);
+
+    const scrollToSection = (ref) => {
+        window.scrollTo({
+            top: ref.current.offsetTop,
+            behavior: "smooth"
+        });
+    };
 
     if (loading) {
         return (
@@ -19,7 +28,6 @@ function App() {
                 <RiseLoader color={"#2f80ed"} size={20} margin={3} />;
             </div>
         );
-        
     }
 
     return (
@@ -33,8 +41,12 @@ function App() {
                     </div>
                     <div className="board">
                         <SkillsCard skills={skills} />
-                        <Projects projectsData={projects} />
+                        <Projects
+                            projectsData={projects}
+                            scrollToSection={scrollToSection}
+                        />
                     </div>
+                    <ScrollToTop />
                     <SpeedDial />
                 </>
             )}
