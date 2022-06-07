@@ -59,7 +59,7 @@ function SpeedDial() {
                 <i className="icon fa-solid fa-envelope"></i>
             </div>
             <Snackbar
-                text="email sent successfully"
+                text="email sent successfully!"
                 display={snackbar}
                 mode="snackbar--success"
             />
