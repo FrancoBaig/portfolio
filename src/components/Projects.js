@@ -73,6 +73,7 @@ function Projects({ projectsData, scrollToSection }) {
                 handleFilter={handleFilter}
                 title="Projects"
                 optionsArray={["All", "React", "SCSS", "CSS", "JS"]}
+                setPage={setPage}
             />
             <div className="projects">
                 {projects.map((proj) => (
