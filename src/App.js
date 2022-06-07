@@ -11,7 +11,7 @@ import GetData from "./services/getData";
 import RiseLoader from "react-spinners/RiseLoader";
 
 function App() {
-    const { loading, userData, projectsData } = GetData();
+    const { loading, user, projects, skills, education, hobbies } = GetData();
 
     if (loading) {
         return (
@@ -19,6 +19,7 @@ function App() {
                 <RiseLoader color={"#2f80ed"} size={20} margin={3} />;
             </div>
         );
+        
     }
 
     return (
@@ -26,13 +27,13 @@ function App() {
             {!loading && (
                 <>
                     <div className="sidebar">
-                        <UserCard userData={userData} />
-                        <Education />
-                        <Hobbies />
+                        <UserCard userData={user} />
+                        <Education educationData={education} />
+                        <Hobbies hobbies={hobbies} />
                     </div>
                     <div className="board">
-                        <SkillsCard />
-                        <Projects projectsData={projectsData} />
+                        <SkillsCard skills={skills} />
+                        <Projects projectsData={projects} />
                     </div>
                     <SpeedDial />
                 </>

@@ -103,7 +103,6 @@
 }
 
 .user-card__description {
-    width: 85%;
     font-size: 1.8rem;
     font-weight: 500;
     color: var(--clr-light-grey);
@@ -156,7 +155,7 @@
 .education {
     
 }
-P
+
 .education__title {
     font-family: var(--ff-primary);
     font-size: 2.4rem;
@@ -172,7 +171,8 @@ P
 }
 
 .education__item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -182,7 +182,8 @@ P
 }
 
 .education__image {
-    
+    width: 100%;
+    object-fit: contain;
 }
 
 .education__texts {
@@ -382,7 +383,7 @@ P
 
 .hobbie__image{
     width: 100%;
-    min-width: 23rem;
+    min-width: 20rem;
     border-radius: var(--border-radius);
     margin-bottom: 1rem;
 }

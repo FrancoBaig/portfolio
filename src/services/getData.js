@@ -10,27 +10,30 @@ import { db } from "../firebaseConfig";
 
 function GetData() {
     const [loading, setLoading] = useState(true);
-    const [userData, setUserData] = useState([]);
-    const [projectsData, setProjectsData] = useState([]);
-
-    const [prueba, setPrueba] = useState([]);
+    const [user, setUser] = useState([]);
+    const [projects, setProjects] = useState([]);
+    const [skills, setSkills] = useState([]);
+    const [education, setEducation] = useState([]);
+    const [hobbies, setHobbies] = useState([]);
 
     useEffect(() => {
-        getData(db, "user", setUserData);
+        getData(db, "user", setUser);
+        getOrderedData(db, "projects", projects, setProjects, "date", "desc");
+        getOrderedData(db, "skills", skills, setSkills, "percent", "desc");
         getOrderedData(
             db,
-            "projects",
-            projectsData,
-            setProjectsData,
+            "education",
+            education,
+            setEducation,
             "date",
             "desc"
         );
+        getData(db, "hobbies", setHobbies);
     }, []);
 
     useEffect(() => {
-        handleLoading(userData);
-        handleLoading(projectsData);
-    }, [userData, projectsData, prueba]);
+        handleLoading(user, projects, skills, hobbies);
+    }, [user, projects, skills, education, hobbies]);
 
     const getData = (db, table, setData) => {
         const ref = collection(db, table);
@@ -71,7 +74,7 @@ function GetData() {
         }
     };
 
-    return { loading, userData, projectsData };
+    return { loading, user, projects, skills, education, hobbies };
 }
 
 export default GetData;

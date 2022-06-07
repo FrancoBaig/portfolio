@@ -12,6 +12,7 @@ function Projects({ projectsData }) {
         getPaginationButtons(filteredProjects)
     );
     const [active, setActive] = useState(1);
+    const lastPage = buttonsText[buttonsText.length - 1];
 
     useLayoutEffect(() => {
         handleSetPages(filteredProjects, page);
@@ -35,13 +36,14 @@ function Projects({ projectsData }) {
     };
 
     const handleSetPages = (data, page) => {
-        const per_page = 5;
+        const per_page = 4;
         let start = page === 0 ? 0 : page * per_page;
         setProjects(data.slice(start, start + per_page));
     };
 
     const handlePagination = (e) => {
         let id = e.target.id;
+
         switch (id) {
             case "left":
                 setPage(page - 1);
@@ -51,6 +53,7 @@ function Projects({ projectsData }) {
                 break;
             default:
                 setPage(id - 1);
+                break;
         }
     };
 
@@ -118,13 +121,15 @@ function Projects({ projectsData }) {
                 ))}
             </div>
             <div className="pagination">
-                <button
-                    className={`btn btn--pagination`}
-                    id={"left"}
-                    onClick={(e) => handlePagination(e)}
-                >
-                    <i className="fa-solid fa-angles-left"></i>
-                </button>
+                {active > 1 && (
+                    <button
+                        className={`btn btn--pagination`}
+                        id={"left"}
+                        onClick={(e) => handlePagination(e)}
+                    >
+                        <i className="fa-solid fa-angles-left"></i>
+                    </button>
+                )}
                 {buttonsText.map((btn) => (
                     <button
                         className={`btn btn--pagination ${
@@ -137,13 +142,15 @@ function Projects({ projectsData }) {
                         {btn}
                     </button>
                 ))}
-                <button
-                    className="btn btn--pagination"
-                    id={"right"}
-                    onClick={(e) => handlePagination(e)}
-                >
-                    <i className="fa-solid fa-angles-right"></i>
-                </button>
+                {active !== lastPage && (
+                    <button
+                        className="btn btn--pagination"
+                        id={"right"}
+                        onClick={(e) => handlePagination(e)}
+                    >
+                        <i className="fa-solid fa-angles-right"></i>
+                    </button>
+                )}
             </div>
         </div>
     );

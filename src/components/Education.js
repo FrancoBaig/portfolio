@@ -1,41 +1,22 @@
 import React from "react";
+import moment from "moment";
 
-const education = [
-    {
-        id: 1,
-        title: "Ingeniería en Sistemas",
-        image: "https://via.placeholder.com/84x84.png",
-        link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
-        description:
-            "Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie",
-        date: "2021 - Current"
-    },
-    {
-        id: 2,
-        title: "Ingeniería en Sistemas",
-        image: "https://via.placeholder.com/84x84.png",
-        link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
-        description:
-            "Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie",
-        date: "2021 - Current"
-    },
-    {
-        id: 3,
-        title: "Ingeniería en Sistemas",
-        image: "https://via.placeholder.com/84x84.png",
-        link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
-        description:
-            "Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie",
-        date: "2021 - Current"
-    }
-];
+function Education({ educationData }) {
+    const getDate = (seconds, isCurrent = false) => {
+        let result = moment(seconds * 1000).format("MMM YYYY");
 
-function Education() {
+        if (isCurrent) {
+            result += " - Current";
+        }
+
+        return result;
+    };
+
     return (
         <div className="education paper">
             <h4 className="education__title">Education</h4>
             <div className="education__items">
-                {education.map((item) => (
+                {educationData.map((item) => (
                     <div className="education__item" key={item.id}>
                         <a className="education__thumbnail" href={item.link}>
                             <img
@@ -45,7 +26,9 @@ function Education() {
                             />
                         </a>
                         <div className="education__texts">
-                            <h5 className="education__date">{item.date}</h5>
+                            <h5 className="education__date">
+                                {getDate(item.date.seconds, item.isCurrent)}
+                            </h5>
                             <h3 className="education__text">{item.title}</h3>
                             <p className="education__description">
                                 {item.description}
