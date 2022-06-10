@@ -17,7 +17,6 @@ import Content from "./services/Content";
 function App() {
     const { loading, user, projects, skills, education, hobbies } = useData();
     const appRef = useRef(null);
-    const [myWindow, setMyWindow] = useState();
 
     const scrollToSection = (ref) => {
         window.scrollTo({

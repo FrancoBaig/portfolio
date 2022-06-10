@@ -27,25 +27,29 @@ function SpeedDial() {
                 className={`chat paper ${display ? "chat--active" : ""}
             `}
             >
+                <div className="icon-x" onClick={toggleDisplay}>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
                 <h3 className="chat__title">Contact me!</h3>
                 <form className="chat__form">
                     <label className="label" htmlFor="email" required>
                         Your email:
                     </label>
                     <input className="input" type="email" name="email" />
+
                     <label className="label" htmlFor="input">
                         Send me a message:
                     </label>
                     <textarea
                         className="textarea"
                         name="input"
-                        rows="18"
-                        cols="50"
                         placeholder="Send me a message"
                         required
                     />
+                </form>
+                <div className="btn-container">
                     <button
-                        className={`btn btn-lg btn--blue ${
+                        className={`btn btn-lg btn--blue btn--100${
                             display ? "" : "btn--hidden"
                         }`}
                         type="submit"
@@ -53,7 +57,7 @@ function SpeedDial() {
                     >
                         Send
                     </button>
-                </form>
+                </div>
             </div>
             <div className="speed-dial" onClick={toggleDisplay}>
                 <i className="icon fa-solid fa-envelope"></i>
