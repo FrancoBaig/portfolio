@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState, useRef } from "react";
 import Filter from "./Filter";
-import getIconFromTag from "../helper/getIconFromTag";
-import getPaginationButtons from "../helper/getPaginationButtons";
+import getIconFromTag from "../../helper/getIconFromTag";
+import getPaginationButtons from "../../helper/getPaginationButtons";
 
 function Projects({ projectsData, scrollToSection }) {
     const data = projectsData;

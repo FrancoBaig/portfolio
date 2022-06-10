@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./App.css";
-import UserCard from "./components/UserCard";
-import SkillsCard from "./components/SkillsCard";
-import Education from "./components/Education";
-import Projects from "./components/Projects";
-import Hobbies from "./components/Hobbies";
-import SpeedDial from "./components/email/SpeedDial";
+import UserCard from "./components/user/UserCard";
+import SkillsCard from "./components/user/SkillsCard";
+import Education from "./components/education/Education";
+import Projects from "./components/projects/Projects";
+import Hobbies from "./components/hobbies/Hobbies";
+import Mail from "./components/email/Mail";
 import ScrollToTop from "./components/ScrollToTop";
 import OpenWindow from "./components/OpenWindow";
 
@@ -82,7 +82,7 @@ function App() {
                             />
                         </div>
                         <ScrollToTop />
-                        <SpeedDial />
+                        <Mail />
                     </>
                 )}
             </div>

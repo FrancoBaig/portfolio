@@ -3,9 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import EducationDetails from "./components/EducationDetails";
+import EducationDetails from "./pages/EducationDetails/EducationDetails";
 import DataProvider from "./services/DataProvider";
-var contentful = require("contentful");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

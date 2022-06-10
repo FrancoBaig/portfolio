@@ -48,6 +48,9 @@ function Education({ educationData }) {
                                     {item.description}
                                 </p> */}
                             </div>
+                            <div className="right-icon">
+                                <i className="fa-solid fa-angle-right"></i>
+                            </div>
                         </div>
                     </Link>
                 ))}

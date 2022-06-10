@@ -1,11 +1,11 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
+import React, { useLayoutEffect, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useData } from "../services/DataProvider";
+import { useData } from "../../services/DataProvider";
 import moment from "moment";
-import Content from "../services/Content";
+import Content from "../../services/Content";
 import ReactMarkdown from "react-markdown";
 import RiseLoader from "react-spinners/RiseLoader";
-import SpeedDial from "./email/SpeedDial";
+import Mail from "../../components/email/Mail";
 
 function EducationDetails() {
     const { loading, education } = useData();
@@ -30,7 +30,7 @@ function EducationDetails() {
     const getEducationIcon = (type) => {
         const obj = document.getElementsByClassName("fa-solid")[0];
         let icon = "";
-        console.log(type);
+
         switch (type.toLowerCase()) {
             case "course":
                 icon = "fa-video";
@@ -65,8 +65,6 @@ function EducationDetails() {
 
         return result;
     };
-
-    const getTypeIcon = (e) => {};
 
     return (
         <>
@@ -114,7 +112,7 @@ function EducationDetails() {
                     Go back
                 </button>
             </div>
-            <SpeedDial />
+            <Mail />
         </>
     );
 }
