@@ -1,11 +1,10 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
+import React, { useLayoutEffect, useState, useRef } from "react";
 import Filter from "./Filter";
-import Projectos from "../data/Projectos.json";
 import getIconFromTag from "../helper/getIconFromTag";
 import getPaginationButtons from "../helper/getPaginationButtons";
 
-function Projects() {
-    const data = Projectos;
+function Projects({ projectsData, scrollToSection }) {
+    const data = projectsData;
     const [page, setPage] = useState(0);
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState(data);
@@ -13,10 +12,15 @@ function Projects() {
         getPaginationButtons(filteredProjects)
     );
     const [active, setActive] = useState(1);
+    const lastPage = buttonsText[buttonsText.length - 1];
+    const projectRef = useRef(null);
 
     useLayoutEffect(() => {
         handleSetPages(filteredProjects, page);
         setButtonsText(getPaginationButtons(filteredProjects));
+
+        /* pagination - active page */
+        setActive(page + 1);
     }, [page, filteredProjects]);
 
     useLayoutEffect(() => {
@@ -40,6 +44,7 @@ function Projects() {
 
     const handlePagination = (e) => {
         let id = e.target.id;
+
         switch (id) {
             case "left":
                 setPage(page - 1);
@@ -49,7 +54,9 @@ function Projects() {
                 break;
             default:
                 setPage(id - 1);
+                break;
         }
+        scrollToSection(projectRef);
     };
 
     const handleFilter = (e) => {
@@ -61,11 +68,12 @@ function Projects() {
     };
 
     return (
-        <div className="project-container">
+        <div className="project-container" ref={projectRef}>
             <Filter
                 handleFilter={handleFilter}
-                title="Proyects"
+                title="Projects"
                 optionsArray={["All", "React", "SCSS", "CSS", "JS"]}
+                setPage={setPage}
             />
             <div className="projects">
                 {projects.map((proj) => (
@@ -74,7 +82,11 @@ function Projects() {
                             className="project__thumbnail"
                             href="http://placehold.com"
                         >
-                            <img className="project__image" src={proj.image} />
+                            <img
+                                className="project__image"
+                                src={proj.image}
+                                alt={proj.name}
+                            />
                         </a>
                         <div className="project__body">
                             <div className="project__labels">
@@ -89,35 +101,42 @@ function Projects() {
                                 {proj.description}
                             </p>
                             <div className="project__buttons">
-                                <button
-                                    type="button"
-                                    className="btn btn-lg btn--blue"
-                                >
-                                    Demo
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-lg btn--border-blue"
-                                >
-                                    Code
-                                </button>
+                                <a href={proj.demo} target="_black">
+                                    <button
+                                        type="button"
+                                        className="btn btn-lg btn--blue"
+                                    >
+                                        Demo
+                                    </button>
+                                </a>
+
+                                <a href={proj.code} target="_black">
+                                    <button
+                                        type="button"
+                                        className="btn btn-lg btn--border-blue"
+                                    >
+                                        Code
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
             <div className="pagination">
-                <button
-                    className={`btn btn--pagination`}
-                    id={"left"}
-                    onClick={(e) => handlePagination(e)}
-                >
-                    <i className="fa-solid fa-angles-left"></i>
-                </button>
+                {active > 1 && (
+                    <button
+                        className={`btn btn--pagination`}
+                        id={"left"}
+                        onClick={(e) => handlePagination(e)}
+                    >
+                        <i className="fa-solid fa-angles-left"></i>
+                    </button>
+                )}
                 {buttonsText.map((btn) => (
                     <button
                         className={`btn btn--pagination ${
-                            active === btn.id ? "btn--blue" : ""
+                            active === btn ? "btn--blue" : ""
                         }`}
                         id={btn}
                         key={btn}
@@ -126,13 +145,15 @@ function Projects() {
                         {btn}
                     </button>
                 ))}
-                <button
-                    className="btn btn--pagination"
-                    id={"right"}
-                    onClick={(e) => handlePagination(e)}
-                >
-                    <i className="fa-solid fa-angles-right"></i>
-                </button>
+                {active !== lastPage && (
+                    <button
+                        className="btn btn--pagination"
+                        id={"right"}
+                        onClick={(e) => handlePagination(e)}
+                    >
+                        <i className="fa-solid fa-angles-right"></i>
+                    </button>
+                )}
             </div>
         </div>
     );

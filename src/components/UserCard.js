@@ -1,39 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function UserCard() {
+function UserCard({ userData }) {
+    const user = userData[0];
+    useEffect(() => {}, []);
+
     return (
         <div className="user-card paper">
-            <a
-                className="user-card__thumbnail"
-                href="https://github.com/FrancoBaig"
-            >
+            <a className="user-card__thumbnail" href={user.github}>
                 <img
                     className="user-card__image"
-                    src="https://via.placeholder.com/365x365.png"
-                    alt="user"
+                    src={user.image}
+                    alt={user.name}
                 />
             </a>
             <div className="user_card__content">
                 <div className="user-card__titles">
-                    <h3 className="user-card__name">Franco Baigorria</h3>
-                    <h5 className="user-card__job">Front-end developer</h5>
+                    <h3 className="user-card__name">{user.name}</h3>
+                    <h5 className="user-card__job">{user.job}</h5>
                 </div>
-                <div className="user-card__contacts">
-                    <div className="contact">
-                        <i className="contact__icon fa-solid fa-envelope"></i>
-                        <p className="contact__text">
-                            baigorriafrancoadg@gmail.com
-                        </p>
-                    </div>
-                    <div className="contact">
-                        <i className="contact__icon fa-solid fa-phone"></i>
-                        <p className="contact__text">(+603) 546 624 342</p>
-                    </div>
-                </div>
-                <p className="user-card__description">
-                    Self-motivated developer, who is willing to learn and create
-                    outstanding UI applications.
-                </p>
+                <p className="user-card__description">{user.description}</p>
             </div>
         </div>
     );

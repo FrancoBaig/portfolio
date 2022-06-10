@@ -1,58 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
+import moment from "moment";
+import { Link } from "react-router-dom";
 
-const education = [
-    {
-        id: 1,
-        title: "Ingeniería en Sistemas",
-        image: "https://via.placeholder.com/84x84.png",
-        link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
-        description:
-            "Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie",
-        date: "2021 - Current"
-    },
-    {
-        id: 2,
-        title: "Ingeniería en Sistemas",
-        image: "https://via.placeholder.com/84x84.png",
-        link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
-        description:
-            "Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie",
-        date: "2021 - Current"
-    },
-    {
-        id: 3,
-        title: "Ingeniería en Sistemas",
-        image: "https://via.placeholder.com/84x84.png",
-        link: "https://www.institucional.frc.utn.edu.ar/sistemas/",
-        description:
-            "Donec aliquam est dui, vel vestibulum diam sollicitudin id. Quisque feugiat malesuada molestie",
-        date: "2021 - Current"
-    }
-];
+function Education({ educationData }) {
+    const [seeMore, setSeeMore] = useState(false);
+    const [educationLength, setEducationLength] = useState(3);
+    const getDate = (seconds, isCurrent = false) => {
+        let result = moment(seconds * 1000).format("MMM YYYY");
 
-function Education() {
+        if (isCurrent) {
+            result += " - Current";
+        }
+
+        return result;
+    };
+
+    const handleShowMore = () => {
+        setSeeMore(!seeMore);
+
+        if (seeMore) {
+            setEducationLength(3);
+        } else {
+            setEducationLength(educationData.length - 1);
+        }
+    };
+
     return (
-        <div className="education paper">
+        <div className="education paper ">
             <h4 className="education__title">Education</h4>
-            <div className="education__items">
-                {education.map((item) => (
-                    <div className="education__item" key={item.id}>
-                        <a className="education__thumbnail" href={item.link}>
+            <div className="education__items ">
+                {educationData.slice(0, educationLength).map((item) => (
+                    <Link to={`/education/${item.title}`} key={item.id}>
+                        <div className="education__item scale">
                             <img
                                 className="education__image"
                                 src={item.image}
                                 alt={item.title}
                             />
-                        </a>
-                        <div className="education__texts">
-                            <h5 className="education__date">{item.date}</h5>
-                            <h3 className="education__text">{item.title}</h3>
-                            <p className="education__description">
-                                {item.description}
-                            </p>
+                            <div className="education__texts">
+                                <h5 className="education__date">
+                                    {getDate(item.date.seconds, item.isCurrent)}
+                                </h5>
+                                <h3 className="education__text">
+                                    {item.title}
+                                </h3>
+                                {/* <p className="education__description">
+                                    {item.description}
+                                </p> */}
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
+                <button className="btn-icon" onClick={handleShowMore}>
+                    <i
+                        className={`btn-icon__icon fa-solid fa-angle-${
+                            seeMore ? "up" : "down"
+                        }`}
+                    ></i>
+                    <p>{seeMore ? "See Less" : "See More"}</p>
+                </button>
             </div>
         </div>
     );
