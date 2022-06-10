@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import {
     collection,
     onSnapshot,
@@ -8,7 +8,9 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 
-function GetData() {
+const dataContext = createContext([]);
+
+function DataProvider({ children }) {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState([]);
     const [projects, setProjects] = useState([]);
@@ -74,7 +76,14 @@ function GetData() {
         }
     };
 
-    return { loading, user, projects, skills, education, hobbies };
+    return (
+        <dataContext.Provider
+            value={{ loading, user, projects, skills, education, hobbies }}
+        >
+            {children}
+        </dataContext.Provider>
+    );
 }
 
-export default GetData;
+export const useData = () => useContext(dataContext);
+export default DataProvider;

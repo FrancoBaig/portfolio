@@ -12,8 +12,12 @@ function Hobbies({ hobbies }) {
                             src={el.image}
                             alt="hobbie_image"
                         />
-                        <h4 className="hobbie__title">{el.title}</h4>
-                        <p className="hobbie__description">{el.description}</p>
+                        <div className="hobbie__text">
+                            <h4 className="hobbie__title">{el.title}</h4>
+                            <p className="hobbie__description">
+                                {el.description}
+                            </p>
+                        </div>
                     </div>
                 ))}
             </div>

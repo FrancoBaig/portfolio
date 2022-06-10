@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./App.css";
 import UserCard from "./components/UserCard";
 import SkillsCard from "./components/SkillsCard";
@@ -6,14 +6,18 @@ import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Hobbies from "./components/Hobbies";
 import SpeedDial from "./components/email/SpeedDial";
-import GetData from "./services/getData";
 import ScrollToTop from "./components/ScrollToTop";
+import OpenWindow from "./components/OpenWindow";
 
 import RiseLoader from "react-spinners/RiseLoader";
+import { useData } from "./services/DataProvider";
+
+import Content from "./services/Content";
 
 function App() {
-    const { loading, user, projects, skills, education, hobbies } = GetData();
+    const { loading, user, projects, skills, education, hobbies } = useData();
     const appRef = useRef(null);
+    const [myWindow, setMyWindow] = useState();
 
     const scrollToSection = (ref) => {
         window.scrollTo({
@@ -21,6 +25,10 @@ function App() {
             behavior: "smooth"
         });
     };
+
+    useEffect(() => {
+        // setMyWindow(window.open("", "", "width=200, height=100"));
+    }, []);
 
     if (loading) {
         return (
@@ -30,27 +38,57 @@ function App() {
         );
     }
 
+    const handlePrueba = (e) => {
+        let size = {
+            width: 0,
+            height: 0
+        };
+        let device = e.target.id;
+
+        switch (device) {
+            case "mobile":
+                size = {
+                    width: 450,
+                    height: 700
+                };
+                break;
+            default:
+                break;
+        }
+
+        let myExternalWindow = window.open(
+            "https://country-quiz-fb.netlify.app/",
+            "resizable",
+            "resizable"
+        );
+
+        myExternalWindow.resizeTo(size.width, size.height);
+    };
+
     return (
-        <div className="container">
-            {!loading && (
-                <>
-                    <div className="sidebar">
-                        <UserCard userData={user} />
-                        <Education educationData={education} />
-                        <Hobbies hobbies={hobbies} />
-                    </div>
-                    <div className="board">
-                        <SkillsCard skills={skills} />
-                        <Projects
-                            projectsData={projects}
-                            scrollToSection={scrollToSection}
-                        />
-                    </div>
-                    <ScrollToTop />
-                    <SpeedDial />
-                </>
-            )}
-        </div>
+        <>
+            <div className="container">
+                {!loading && (
+                    <>
+                        <div className="sidebar">
+                            <UserCard userData={user} />
+                            <Education educationData={education} />
+                            <Hobbies hobbies={hobbies} />
+                        </div>
+                        <div className="board">
+                            <SkillsCard skills={skills} />
+                            <Projects
+                                projectsData={projects}
+                                scrollToSection={scrollToSection}
+                            />
+                        </div>
+                        <ScrollToTop />
+                        <SpeedDial />
+                    </>
+                )}
+            </div>
+            <OpenWindow />
+        </>
     );
 }
 

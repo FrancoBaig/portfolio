@@ -5,7 +5,7 @@ function Snackbar({ text, display, mode = "snackbar--success" }) {
         <div
             className={`snackbar ${display ? "snackbar--active" : ""} ${mode}`}
         >
-            <i class="fa-regular fa-circle-check"></i>
+            <i className="fa-regular fa-circle-check"></i>
             {text}
         </div>
     );

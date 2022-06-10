@@ -1,3 +1,4 @@
+
 /* imports */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 
@@ -23,6 +24,8 @@
     --border-radius: 12px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
+
 
 .spinner {
     height: 100vh;
@@ -177,6 +180,15 @@
     margin-bottom: 2rem;
 }
 
+.education__item--details{
+    grid-template-columns: 1fr 5fr;
+}
+
+
+.scale:hover{
+    transform: scale(1.1);
+}
+
 .education__thumbnail {
     
 }
@@ -186,10 +198,38 @@
     object-fit: contain;
 }
 
+
 .education__texts {
     font-family: var(--ff-primary);
     display: grid;
     gap: 1rem;
+}
+
+.education__text--details {
+    font-family: var(--ff-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.education__type{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--clr-grey);
+    display: flex;
+    gap: 1rem;
+}
+
+.pill {
+    border: 1px solid var(--clr-light-grey);
+    display: inline-block;
+    border-radius: 24px;
+    padding: .5rem 1rem;
+    background-color: #e7e8ec;
+    color: var(--clr-grey);
+    display: flex;
+    gap: .5rem;
+    align-items: center;
 }
 
 .education__date {
@@ -209,6 +249,41 @@
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--clr-light-grey);
+    width: 50%;
+}
+
+.education__syllabus {
+    font-family: var(--ff-primary);
+    font-size: 1rem;
+    color: var(--clr--grey);
+}
+
+.education__syllabus h1 {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    color: var(--clr-blue);
+}
+
+.education__syllabus h2 {
+    font-size: 1.6rem;
+    color: var(--clr-grey);
+    padding-top: 1rem;
+    padding-bottom: .4rem;
+}
+
+.education__syllabus li {
+    margin: .25rem;
+}
+
+.education__syllabus ul{
+    margin-left: 3rem;
+    font-size: 1.2rem;
+}
+
+.education__syllabus p {
+    margin: .25rem;
+    width: 40%;
+    font-size: 1.2rem;
 }
 
 /* buttons */
@@ -253,6 +328,28 @@
     border: .5px solid var(--clr-light-grey);
 }
 
+.btn-icon {
+    display: flex;
+    padding-left: 1rem;
+    gap: 1.5rem;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+
+    font-family: var(--ff-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--clr-grey);
+
+    cursor: pointer;
+}
+
+.btn-icon__icon {
+    background-color: #d8dadf;
+    border-radius: 50%;
+    padding: .7rem .9rem;
+}
+
 /* Filter */
 .filter{
     height: fit-content;
@@ -290,10 +387,6 @@
 }
 
 .project__thumbnail{
-    /* Cambiar */
-    /* width: 322px;
-    height: 274px; */
-    /* display: flex; */
     border-radius: var(--border-radius);
 }
 
@@ -302,6 +395,11 @@
     min-width: 21rem;
     border-radius: var(--border-radius);    
     object-fit: contain;
+    transition: all 300ms;
+}
+
+.project__image:hover{
+    transform: scale(1.05);
 }
 
 .project__body{
@@ -353,10 +451,9 @@
 
 .pagination {
     display: flex;
+    justify-content: center;
     gap: .2rem;
-    position: absolute;
-    right: 2rem;
-    bottom: -6rem;
+    padding-top: 3rem;
 }
 
 /* Hobbies */
@@ -562,6 +659,51 @@ textarea{
     border-radius: 4px;
 }
 
+/* Open window */
+.open-window{
+    position: absolute;
+    top: 2rem;
+    right: 6.5rem;
+
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-devices {
+    background-color: #d8dadf;
+    border-radius: 50%;
+    padding: .7rem .9rem;
+    font-size: 1.8rem;
+}
+
+.btn-devices:hover{
+    background-color: var(--clr-blue-hover);
+    color: var(--clr-white);
+}
+
+
+.icon-gap{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.fs-lg {
+    font-size: 2.4rem;
+}
+
+.fs-md {
+    font-size: 2rem;
+}
+
+.m-3{
+    margin: 3rem;
+}
+
+.mt-3{
+    margin-top: 2rem;
+}
+
 @media screen and (max-width: 1200px){
     html {
         font-size: 55%;
@@ -581,6 +723,26 @@ textarea{
 }
 
 @media screen and (max-width: 800px){
+    .user-card{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 2rem;
+    }
+
+    .user_card__content {
+        margin-top: 1rem;
+    }
+    
+    .education__item {
+        grid-template-columns: 1fr 3fr;
+    }
+    
+    .hobbies__item{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+    }
+
     html {
         font-size: 50%;
     }
@@ -590,3 +752,14 @@ textarea{
         flex-direction: column;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .container {
+        padding: 2.4rem;
+    }
+
+    html {
+        font-size: 42%;
+    }
+}
+

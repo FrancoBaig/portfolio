@@ -37,7 +37,7 @@ function Projects({ projectsData, scrollToSection }) {
     };
 
     const handleSetPages = (data, page) => {
-        const per_page = 4;
+        const per_page = 5;
         let start = page === 0 ? 0 : page * per_page;
         setProjects(data.slice(start, start + per_page));
     };
