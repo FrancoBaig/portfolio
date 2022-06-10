@@ -26,12 +26,12 @@ function Snackbar({ display, setDisplay, mode }) {
                 setDisplay(false);
             }, 3000);
         }
-    }, [display]);
+    }, [display, setDisplay]);
 
     return (
         <div
             className={`snackbar ${display ? "snackbar--active" : ""} ${
-                mode === "success" ? "snackbar-success" : "snackbar--error"
+                mode === "success" ? "snackbar--success" : "snackbar--error"
             }`}
         >
             <i
