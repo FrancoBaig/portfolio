@@ -60,11 +60,11 @@
     margin: 0 auto;
     padding: 6.4rem;
 
-    display: flex;
-
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 3.5rem;
+
+    position: relative;
 }
 
 .sidebar {
@@ -272,7 +272,7 @@
 }
 
 .education__date {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: var(--clr-light-grey);
 }
@@ -780,6 +780,7 @@ textarea{
     margin-top: 2rem;
 }
 
+
 @media screen and (max-width: 1200px){
     html {
         font-size: 55%;
@@ -799,6 +800,10 @@ textarea{
 }
 
 @media screen and (max-width: 800px){
+    .open-window {
+        display: none;
+    }
+
     .user-card{
         display: grid;
         grid-template-columns: 1fr 3fr;
@@ -810,7 +815,7 @@ textarea{
     }
     
     .education__item {
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 2fr 5fr 1fr;
     }
     
     .hobbies__item{

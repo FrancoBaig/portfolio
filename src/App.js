@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import UserCard from "./components/user/UserCard";
 import SkillsCard from "./components/user/SkillsCard";
@@ -11,12 +11,10 @@ import OpenWindow from "./components/OpenWindow";
 
 import RiseLoader from "react-spinners/RiseLoader";
 import { useData } from "./services/DataProvider";
-
-import Content from "./services/Content";
+import orderEducation from "./helper/orderEducation";
 
 function App() {
     const { loading, user, projects, skills, education, hobbies } = useData();
-    const appRef = useRef(null);
 
     const scrollToSection = (ref) => {
         window.scrollTo({
@@ -25,9 +23,7 @@ function App() {
         });
     };
 
-    useEffect(() => {
-        // setMyWindow(window.open("", "", "width=200, height=100"));
-    }, []);
+    useEffect(() => {}, []);
 
     if (loading) {
         return (
@@ -37,41 +33,17 @@ function App() {
         );
     }
 
-    const handlePrueba = (e) => {
-        let size = {
-            width: 0,
-            height: 0
-        };
-        let device = e.target.id;
-
-        switch (device) {
-            case "mobile":
-                size = {
-                    width: 450,
-                    height: 700
-                };
-                break;
-            default:
-                break;
-        }
-
-        let myExternalWindow = window.open(
-            "https://country-quiz-fb.netlify.app/",
-            "resizable",
-            "resizable"
-        );
-
-        myExternalWindow.resizeTo(size.width, size.height);
-    };
-
     return (
         <>
             <div className="container">
+                <OpenWindow />
                 {!loading && (
                     <>
                         <div className="sidebar">
                             <UserCard userData={user} />
-                            <Education educationData={education} />
+                            <Education
+                                educationData={orderEducation(education)}
+                            />
                             <Hobbies hobbies={hobbies} />
                         </div>
                         <div className="board">
@@ -86,7 +58,6 @@ function App() {
                     </>
                 )}
             </div>
-            <OpenWindow />
         </>
     );
 }

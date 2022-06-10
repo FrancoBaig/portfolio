@@ -30,6 +30,7 @@ function DataProvider({ children }) {
             "date",
             "desc"
         );
+
         getData(db, "hobbies", setHobbies);
     }, []);
 
