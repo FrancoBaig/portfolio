@@ -8,6 +8,12 @@ function getIconFromTag(tag) {
             return "fa-js-square";
         case "react":
             return "fa-react";
+        case "nodejs":
+            return "fa-node";
+        case "mysql":
+            return "fa-database";
+        case "mongodb":
+            return "fa-database";
         case "scss":
         case "sass":
             return "fa-sass";
