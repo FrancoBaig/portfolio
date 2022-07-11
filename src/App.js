@@ -27,7 +27,7 @@ function App() {
     if (loading) {
         return (
             <div className="spinner">
-                <RiseLoader color={"#2f80ed"} size={20} margin={3} />;
+                <RiseLoader color={"#2f80ed"} size={20} margin={3} />
             </div>
         );
     }
