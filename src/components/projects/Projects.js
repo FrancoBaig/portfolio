@@ -118,7 +118,7 @@ function Projects({ projectsData, scrollToSection }) {
                             <div className="project__buttons">
                                 <a href={proj.demo} target="_black">
                                     <button
-                                        disabled={true}
+                                        disabled={proj.inProgress}
                                         className={`btn btn-lg btn--blue ${
                                             proj.inProgress
                                                 ? "btn--disabled"
