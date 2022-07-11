@@ -464,17 +464,17 @@
     font-size: 2.4rem;
     font-weight: 500;
     color: var(--clr-black);   
-    margin: 2rem 0; 
+    margin: 2rem 0 1.8rem 0; 
 }
 
 .project__description {
     font-family: var(--ff-primary);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 500;
     color: var(--clr-light-grey);
     margin-bottom: 4rem;
     padding-bottom: 2rem;
-    
+    width: 70%;
 }
 
 .project__buttons{
@@ -790,12 +790,21 @@ textarea{
 @media screen and (max-width: 1050px) {
     .projects {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
     }
 
     .project {
         display: flex;
         flex-direction: column;
+    }
+
+     .project__description {
+        width: 100%;
+        height: 13rem;
+    }
+
+    .education__description{
+        width: 100%;
     }
 }
 
@@ -818,6 +827,14 @@ textarea{
         grid-template-columns: 2fr 5fr 1fr;
     }
     
+    .education__type {
+        flex-direction: column;
+    }
+
+    .pill {
+        width: max-content;
+    }
+    
     .hobbies__item{
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -832,6 +849,7 @@ textarea{
         display: flex;
         flex-direction: column;
     }
+
 }
 
 @media screen and (max-width: 500px) {

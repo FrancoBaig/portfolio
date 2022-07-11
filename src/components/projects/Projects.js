@@ -64,7 +64,9 @@ function Projects({ projectsData, scrollToSection }) {
         if (e.target.id === "All") {
             return setFilteredProjects(data);
         }
-        setFilteredProjects(data.filter((elem) => elem.tags.includes(filter)));
+        setFilteredProjects(
+            data.filter((elem) => elem.filter.includes(filter))
+        );
     };
 
     return (
@@ -72,7 +74,7 @@ function Projects({ projectsData, scrollToSection }) {
             <Filter
                 handleFilter={handleFilter}
                 title="Projects"
-                optionsArray={["All", "React", "SCSS", "CSS", "JS"]}
+                optionsArray={["All", "Full-Stack", "Front-end", "Responsive"]}
                 setPage={setPage}
             />
             <div className="projects">

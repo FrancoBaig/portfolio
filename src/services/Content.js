@@ -14,7 +14,7 @@ function Content() {
     const getData = async (id) => {
         setLoading(true);
         try {
-            const entries = await client
+            await client
                 .getEntry(id)
                 .then((response) => setData(response.fields.nuevo));
         } catch (error) {

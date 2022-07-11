@@ -14,9 +14,6 @@ function Hobbies({ hobbies }) {
                         />
                         <div className="hobbie__text">
                             <h4 className="hobbie__title">{el.title}</h4>
-                            <p className="hobbie__description">
-                                {el.description}
-                            </p>
                         </div>
                     </div>
                 ))}
