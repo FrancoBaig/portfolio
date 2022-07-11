@@ -46,6 +46,22 @@
     color: #61dafb;
 }
 
+.mongodb {
+    color: #07ac4f;
+}
+
+.mysql {
+    color: #3485a2;
+}
+
+.fa-database {
+    font-size: larger;
+}
+
+.fa-node {
+    color: #0a934e;
+}
+
 
 
 .spinner {
@@ -367,6 +383,17 @@
     border: .5px solid var(--clr-light-grey);
 }
 
+.btn--disabled {
+    background-color: #e0e0e0;
+    color: #a6a6a6;
+    cursor: default;
+}
+
+.btn--disabled:hover{
+    background-color: #e0e0e0;
+    color: #a6a6a6
+}
+
 .btn-icon {
     display: flex;
     padding-left: 1rem;
@@ -444,6 +471,7 @@
 
 .project__labels{
     display: flex;
+    align-items: center;
     gap: 1.4rem;
     padding-top: .5rem;
 }
@@ -457,6 +485,17 @@
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--clr-grey);
+}
+
+.project__in-progress {
+    display: flex;
+    align-items: center;
+    font-family: var(--ff-primary);
+    color: #333333;
+    padding: .8rem;
+    border: 1px solid #a6a6a6;
+    border-radius: 8px;
+    margin-left: 1rem;
 }
 
 .project__title {

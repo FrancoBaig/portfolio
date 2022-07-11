@@ -33,6 +33,12 @@ function Projects({ projectsData, scrollToSection }) {
             let tag = projects[i].attributes.tag.value;
             let iconForTag = getIconFromTag(tag);
             projects[i].classList.add(iconForTag);
+            if (tag.toLowerCase() === "mysql") {
+                projects[i].classList.add("fa-solid", "mysql");
+            }
+            if (tag.toLowerCase() === "mongodb") {
+                projects[i].classList.add("fa-solid", "mongodb");
+            }
         }
     };
 
@@ -97,6 +103,13 @@ function Projects({ projectsData, scrollToSection }) {
                                         <i className="fa-brands" tag={tag}></i>
                                     </span>
                                 ))}
+                                {proj.inProgress ? (
+                                    <span class="project__in-progress">
+                                        In progress
+                                    </span>
+                                ) : (
+                                    ""
+                                )}
                             </div>
                             <h2 className="project__title">{proj.title}</h2>
                             <p className="project__description">
@@ -105,8 +118,12 @@ function Projects({ projectsData, scrollToSection }) {
                             <div className="project__buttons">
                                 <a href={proj.demo} target="_black">
                                     <button
-                                        type="button"
-                                        className="btn btn-lg btn--blue"
+                                        disabled={true}
+                                        className={`btn btn-lg btn--blue ${
+                                            proj.inProgress
+                                                ? "btn--disabled"
+                                                : ""
+                                        }`}
                                     >
                                         Demo
                                     </button>

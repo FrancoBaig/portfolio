@@ -7,7 +7,6 @@ import Projects from "./components/projects/Projects";
 import Hobbies from "./components/hobbies/Hobbies";
 import Mail from "./components/email/Mail";
 import ScrollToTop from "./components/ScrollToTop";
-import OpenWindow from "./components/OpenWindow";
 
 import RiseLoader from "react-spinners/RiseLoader";
 import { useData } from "./services/DataProvider";
@@ -36,7 +35,6 @@ function App() {
     return (
         <>
             <div className="container">
-                <OpenWindow />
                 {!loading && (
                     <>
                         <div className="sidebar">
