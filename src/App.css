@@ -511,7 +511,6 @@
     font-size: 1.8rem;
     font-weight: 500;
     color: var(--clr-light-grey);
-    margin-bottom: 4rem;
     padding-bottom: 2rem;
     width: 70%;
 }
@@ -519,9 +518,6 @@
 .project__buttons{
     display: flex;
     gap: 1.3rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 
 .pagination {
